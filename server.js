@@ -83,7 +83,7 @@ const requestListener = (req, res) => {
     req.on('end',()=>{
       try{
         const todo = JSON.parse(body).title;
-        const id = req.url.splice('/').pop();
+        const id = req.url.split('/').pop();
         const index = todos.findIndex(element => element.id ==id);
         if(todo !== undefined && index !== -1){
           todos[index].title = todo; //改陣列裡面的資料從todo中取得資料
